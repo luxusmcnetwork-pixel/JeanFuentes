@@ -1,0 +1,540 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ffe1;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #00ffe1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00ccb3;
+    box-shadow: 0 0 8px #00ffe1;
+}
+
+body {
+    background: #000;
+    overflow-x: hidden;
+    font-family: 'Oxanium', sans-serif;
+    color: #fff;
+    line-height: 1.6;
+    cursor: default;
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.left {
+    width: 50%;
+    background: url("../images/imagen.png") center/cover no-repeat;
+    position: relative;
+}
+
+.left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.right {
+    width: 50%;
+    background: #0d0d0d url("../images/fondo1.jpg") center/cover no-repeat;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 2px solid #00ffe1;
+    opacity: 0;
+    transform: translateX(120px);
+    animation: showPanel 1s ease forwards;
+    animation-delay: 1s;
+    position: relative;
+}
+
+.right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 13, 0.85);
+    z-index: 1;
+}
+
+.right > * {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes showPanel {
+    from {
+        opacity: 0;
+        transform: translateX(120px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #00ffe1;
+    text-shadow: 0 0 10px #00ffe1;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-family: 'Oxanium', sans-serif;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #aaa;
+    margin-bottom: 30px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.skills {
+    font-size: 1.15rem;
+    line-height: 1.9rem;
+    color: #e0e0e0;
+    font-family: 'Chakra Petch', sans-serif;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 225, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.skills b {
+    color: #00ffe1;
+    text-shadow: 0 0 5px #00ffe1;
+    font-weight: 600;
+}
+
+.skills-list {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.skills-list li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.skills-list li::before {
+    content: '▸';
+    color: #00ffe1;
+    position: absolute;
+    left: -20px;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 70px 50px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 1s ease;
+    border-top: 2px solid #00ffe1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: 2.8rem;
+    color: #00ffe1;
+    text-shadow: 0 0 8px #00ffe1;
+    margin-bottom: 30px;
+    font-family: 'Oxanium', sans-serif;
+    letter-spacing: 1px;
+}
+
+.cybertext {
+    font-size: 1.25rem;
+    color: #ccc;
+    margin-bottom: 50px;
+    max-width: 900px;
+    line-height: 1.9rem;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.cybertext p {
+    margin-bottom: 20px;
+}
+
+#sec2 {
+    background: #0a0a0a url("../images/fondo2.jpg") center/cover no-repeat;
+}
+
+#sec2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+#sec3 {
+    background: #0a0a0a url("../images/fondo3.jpg") center/cover no-repeat;
+}
+
+#sec3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+}
+
+.section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.minecraft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.minecraft-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #2E8B57;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.minecraft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #2E8B57;
+}
+
+.minecraft-card h3 {
+    color: #2E8B57;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: 'Oxanium', sans-serif;
+}
+
+.minecraft-card p {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.plugin-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.plugin-tag {
+    background: rgba(46, 139, 87, 0.2);
+    border: 1px solid #2E8B57;
+    color: #2E8B57;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.console-box {
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #00ffe1;
+    padding: 25px;
+    max-width: 900px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1rem;
+    color: #00ffe1;
+    box-shadow: 0 0 15px #00ffe1;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    backdrop-filter: blur(5px);
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background: #00ffe1;
+    margin-left: 3px;
+    animation: blink 0.7s infinite alternate;
+    height: 1.2em;
+    vertical-align: text-bottom;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.nav-dots {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #444;
+    border-radius: 50%;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid #00ffe1;
+    position: relative;
+}
+
+.dot.active {
+    background: #00ffe1;
+    box-shadow: 0 0 10px #00ffe1;
+    transform: scale(1.3);
+}
+
+.dot:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 255, 225, 0.9);
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-family: 'Chakra Petch', sans-serif;
+    white-space: nowrap;
+}
+
+.discord-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #5865F2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+    border: 2px solid transparent;
+}
+
+.discord-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #5865F2;
+    border-color: #00ffe1;
+}
+
+.discord-button:hover .discord-tooltip {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.discord-icon {
+    width: 35px;
+    height: 35px;
+    color: white;
+    z-index: 2;
+    position: relative;
+    fill: currentColor;
+}
+
+.discord-tooltip {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: rgba(88, 101, 242, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 2.8rem;
+    }
+    .right {
+        padding: 50px;
+    }
+    .minecraft-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        height: auto;
+    }
+    .left, .right {
+        width: 100%;
+        height: 100vh;
+    }
+    .right {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        padding: 40px 30px;
+    }
+    .title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .subtitle {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    .skills {
+        padding: 20px;
+    }
+    .section {
+        padding: 50px 25px;
+        background-attachment: scroll;
+    }
+    .section h2 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    .cybertext {
+        font-size: 1.15rem;
+    }
+    .console-box {
+        font-size: 1rem;
+        padding: 20px;
+    }
+    .nav-dots {
+        right: 15px;
+    }
+    .dot:hover::after {
+        display: none;
+    }
+    .discord-button {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    .discord-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .right {
+        padding: 30px 20px;
+    }
+    .skills {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    .section {
+        padding: 40px 20px;
+    }
+    .section h2 {
+        font-size: 1.8rem;
+    }
+    .cybertext {
+        font-size: 1rem;
+    }
+    .minecraft-card {
+        padding: 20px;
+    }
+    .plugin-tag {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    .discord-button {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    .discord-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #00ffe1;
+    color: #000;
+    padding: 8px;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
